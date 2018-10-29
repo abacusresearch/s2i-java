@@ -21,7 +21,7 @@ RUN (curl -0 http://www.eu.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries
     ln -sf /usr/local/maven/bin/mvn /usr/local/bin/mvn && \
     mkdir -p $HOME/.m2 && chmod -R a+rwX $HOME/.m2
 
-ENV GRADLE_VERSION 2.6
+ENV GRADLE_VERSION 4.6
 RUN curl -sL -0 https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -o /tmp/gradle-${GRADLE_VERSION}-bin.zip && \
     unzip /tmp/gradle-${GRADLE_VERSION}-bin.zip -d /usr/local/ && \
     rm /tmp/gradle-${GRADLE_VERSION}-bin.zip && \
@@ -30,7 +30,7 @@ RUN curl -sL -0 https://services.gradle.org/distributions/gradle-${GRADLE_VERSIO
 
 ENV PATH=/opt/maven/bin/:/opt/gradle/bin/:$PATH
 
-ENV BUILDER_VERSION 1.0
+ENV BUILDER_VERSION 1.1
 
 LABEL io.k8s.description="Platform for building Java (fatjar) applications with maven or gradle" \
       io.k8s.display-name="Java S2I builder 1.0" \
